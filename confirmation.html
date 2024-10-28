@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        h1 {
+            color: #52e6e6;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        #appointment-details {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+
+        button {
+            background-color: #52e6e6;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #52c1c1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Appointment Confirmed!</h1>
+    <p>Your appointment has been successfully booked.</p>
+
+    <div id="appointment-details"></div>
+
+    <button onclick="window.location.href='index.html'">Back to Home</button>
+
+    <script>
+        // Retrieve and display appointment details from localStorage
+        const appointmentDetails = JSON.parse(localStorage.getItem('appointmentDetails'));
+        if (appointmentDetails) {
+            document.getElementById('appointment-details').innerHTML = `
+                <p>Doctor: ${appointmentDetails.doctor}</p>
+                <p>Date: ${appointmentDetails.date}</p>
+                <p>Time: ${appointmentDetails.time}</p>
+            `;
+        } else {
+            document.getElementById('appointment-details').innerHTML = '<p>No appointment details found.</p>';
+        }
+    </script>
+</body>
+</html>

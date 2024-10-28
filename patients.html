@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Data Overview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h2 {
+            color: #52e6e6;
+        }
+
+        .appointment {
+            background-color: #52e6e6;
+            color: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .no-appointments {
+            color: #ff0000; /* Red for no appointments */
+        }
+    </style>
+</head>
+<body>
+    <h2>Patient Data Overview</h2>
+    <div id="appointment-data"></div>
+
+    <script>
+        window.onload = function() {
+            const appointmentDetails = JSON.parse(localStorage.getItem('appointmentDetails')) || [];
+
+            const appointmentDataDiv = document.getElementById('appointment-data');
+
+            if (appointmentDetails.length === 0) {
+                appointmentDataDiv.innerHTML = "<p class='no-appointments'>No appointments found for today.</p>";
+                return;
+            }
+
+            // Group appointments by date
+            const appointmentsByDate = {};
+            appointmentDetails.forEach(appointment => {
+                const date = appointment.date;
+                if (!appointmentsByDate[date]) {
+                    appointmentsByDate[date] = [];
+                }
+                appointmentsByDate[date].push(appointment);
+            });
+
+            // Display appointments
+            for (const date in appointmentsByDate) {
+                const count = appointmentsByDate[date].length;
+                const appointmentInfo = `<div class='appointment'>${count} appointment(s) for ${date}</div>`;
+                appointmentDataDiv.innerHTML += appointmentInfo;
+            }
+        };
+    </script>
+</body>
+</html>

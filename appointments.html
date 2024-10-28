@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #7ef0ae;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .user-info {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            color: white;
+        }
+
+        nav {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            background-color: #f2f5f6;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            background-color: rgb(242, 245, 246);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #7ef0ae; /* Change background color on hover */
+            color: white;
+        }
+
+        main {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color:#7ef0ae;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #7ef0ae;
+            color: white;
+        }
+
+        .back-button {
+            background-color: #ccc;
+            color: black;
+            margin-top: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background-color: #aaa; /* Slight hover effect for back button */
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #7ef0ae;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Healthcare Appointment System</h1>
+        <div class="user-info" id="user-info"></div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="appointments.html">Appointments</a></li>
+            <li><a href="doctor_profiles.html">Doctor Profiles</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Your Appointments</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Doctor</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody id="appointments-list">
+                <!-- Appointments will be dynamically populated here -->
+            </tbody>
+        </table>
+        
+        <button class="back-button" onclick="window.location.href='index.html'">Back to Home</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Healthcare System</p>
+    </footer>
+
+    <script>
+        // Display user info on page load
+        window.onload = function() {
+            const userDetails = JSON.parse(localStorage.getItem('userDetails'));
+            const userInfoDiv = document.getElementById('user-info');
+            if (userDetails) {
+                userInfoDiv.textContent = `Logged in as: ${userDetails.username || userDetails.name}`;
+            }
+
+            // Load appointments from localStorage
+            const appointmentDetails = JSON.parse(localStorage.getItem('appointmentDetails'));
+            const appointmentsList = document.getElementById('appointments-list');
+            
+            if (appointmentDetails) {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${appointmentDetails.doctor}</td><td>${appointmentDetails.date}</td><td>${appointmentDetails.time}</td>`;
+                appointmentsList.appendChild(row);
+            } else {
+                appointmentsList.innerHTML = '<tr><td colspan="3">No appointments found.</td></tr>';
+            }
+        };
+    </script>
+</body>
+</html>

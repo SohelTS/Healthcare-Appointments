@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Profiles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #52e6e6;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #000;
+            background-color: rgb(242, 245, 246);
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #52e6e6;
+            color: white;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #52e6e6;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Doctor Profile Styles */
+        .doctor-profile {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+
+        .doctor-name {
+            font-weight: bold;
+            font-size: 18px;
+            color: #52e6e6;
+            cursor: pointer;
+        }
+
+        .doctor-specialty, .doctor-description {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .doctor-details {
+            display: none; /* Initially hidden */
+            margin-top: 10px;
+        }
+
+        .back-button {
+            background-color: #52e6e6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            font-size: 16px;
+        }
+
+        .back-button:hover {
+            background-color: #42b2b2;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #52e6e6;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Healthcare Appointment System</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="appointments.html">Appointments</a></li>
+            <li><a href="doctor_profiles.html">Doctor Profiles</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Doctor Profiles</h2>
+        
+        <!-- Doctor Profile: Dr. Smith -->
+        <div class="doctor-profile">
+            <div class="doctor-name" onclick="toggleDetails(this)">Dr. Smith</div>
+            <div class="doctor-details">
+                <div class="doctor-specialty">Specialty: General Practitioner</div>
+                <div class="doctor-description">
+                    <p><strong>Education:</strong> Dr. Smith received his medical degree from Harvard Medical School and completed his residency at Johns Hopkins University.</p>
+                    <p><strong>Experience:</strong> With over 10 years of experience, Dr. Smith has managed a wide range of conditions from routine checkups to complex illnesses.</p>
+                    <p><strong>Special Interests:</strong> Preventive care, chronic disease management, and patient education are his key areas of interest.</p>
+                    <p><strong>Patient Care Philosophy:</strong> Dr. Smith believes in building strong relationships with his patients and emphasizes a holistic approach to healthcare. He advocates for regular health screenings and personalized care plans.</p>    
+                </div>
+            </div>
+        </div>
+
+        <!-- Doctor Profile: Dr. Jones -->
+        <div class="doctor-profile">
+            <div class="doctor-name" onclick="toggleDetails(this)">Dr. Jones</div>
+            <div class="doctor-details">
+                <div class="doctor-specialty">Specialty: Cardiologist</div>
+                <div class="doctor-description">
+                    <p><strong>Education:</strong> Dr. Jones received his medical degree from Harvard Medical School and completed his residency at Johns Hopkins University.</p>
+                    <p><strong>Experience:</strong> With over 10 years of experience, Dr. Smith has managed a wide range of conditions from routine checkups to complex illnesses.</p>
+                    <p><strong>Special Interests:</strong> Preventive care, chronic disease management, and patient education are his key areas of interest.</p>
+                    <p><strong>Patient Care Philosophy:</strong> Dr. Smith believes in building strong relationships with his patients and emphasizes a holistic approach to healthcare. He advocates for regular health screenings and personalized care plans.</p>    
+                </div>
+            </div>
+        </div>
+
+        <!-- Doctor Profile: Dr. Brown -->
+        <div class="doctor-profile">
+            <div class="doctor-name" onclick="toggleDetails(this)">Dr. Brown</div>
+            <div class="doctor-details">
+                <div class="doctor-specialty">Specialty: Pediatrician</div>
+                <div class="doctor-description">
+                    <p><strong>Education:</strong> Dr. Brown received his medical degree from Harvard Medical School and completed his residency at Johns Hopkins University.</p>
+                    <p><strong>Experience:</strong> With over 10 years of experience, Dr. Smith has managed a wide range of conditions from routine checkups to complex illnesses.</p>
+                    <p><strong>Special Interests:</strong> Preventive care, chronic disease management, and patient education are his key areas of interest.</p>
+                    <p><strong>Patient Care Philosophy:</strong> Dr. Smith believes in building strong relationships with his patients and emphasizes a holistic approach to healthcare. He advocates for regular health screenings and personalized care plans.</p>    
+                </div>
+        </div>
+
+        <button class="back-button" onclick="window.location.href='index.html'">Back to Home</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Healthcare System</p>
+    </footer>
+
+    <script>
+        // Toggle the visibility of doctor details when the name is clicked
+        function toggleDetails(element) {
+            const details = element.nextElementSibling;
+            if (details.style.display === "block") {
+                details.style.display = "none";
+            } else {
+                details.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
